@@ -20,6 +20,11 @@
 	<!-- Theme CSS -->  
 	<link id="theme-style" rel="stylesheet" href="assets/css/devresume.css">
 
+	<!-- JQuery Min -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<!-- Angular framework -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
 </head> 
 
 <body>
@@ -37,9 +42,11 @@
 						<div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
 							<ul class="list-unstyled mb-0">
 								<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg me-2 "></i><a class="resume-link" href="tel:#">0123 4567 890</a></li>
-								<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg me-2"></i><a class="resume-link" href="mailto:#">simon@yourwebsite.com</a></li>
-								<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">www.yourwebsite.com</a></li>
-								<li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i>New York</li>
+								<li class="mb-2" id="email" onclick="showhideEmail()" ><i class="fas fa-envelope-square fa-fw fa-lg me-2"></i>Email</li>
+									<script src="email.js"></script>
+								<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="https://jurollba-uc.github.io/waph.html">WAPH Course</a></li>
+								<li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i>Cincinnati</li>
+								<li class="mb-0" onclick="resume()"><i class="fas fa-download fa-fw fa-lg me-2"></i><a href="BALAKRISHNA_RESUME.pdf">Resume</a></li>
 							</ul>
 						</div><!--//resume-contact-->
 					</div><!--//row-->
@@ -71,11 +78,7 @@
 									</div>
 									<div class="item-content">
 										<p>In this Internship, my role is to develop the basic codes that are needed to develop the security bar that is needed by the organization. And later on we went on to take the professional Developmengt course that is provided by the company and helped the team with our knowledge </p>
-										<ul class="resume-list">
-											<li>Lorem ipsum dolor sit amet, consectetuer.</li>
-											<li>Aenean commodo ligula eget dolor.</li>
-											<li>Etiam ultricies nisi vel augue.</li>
-										</ul>
+	
 									</div>
 								</div><!--//item-->
 								
@@ -110,7 +113,141 @@
 										
 									</div>
 								</div><!--//item-->
+
 								
+							<!-- Analog clock -->
+								<div class="analog-clock">
+
+
+									<canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
+										<script src="https://waph-uc.github.io/clock.js"></script>
+										<script>
+											var canvas = document.getElementById("analog-clock");
+											var ctx = canvas.getContext("2d");
+											var radius = canvas.height/2;
+											ctx.translate(radius, radius);
+											radius = radius*0.90
+											setInterval(drawClock, 1000);
+
+											function drawClock(){
+												drawFace(ctx, radius);
+												drawNumbers(ctx,radius);
+												drawTime(ctx, radius);	
+											}
+										</script>
+										<!-- flag counter -->
+										<div><a href="https://info.flagcounter.com/Amxn"><img src="https://s11.flagcounter.com/count/Amxn/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a></div>
+										<!-- Cookies Storing the username  -->
+										<script>
+											function retrieveOrAssignUserName() {
+    											const storedUserName = document.cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+    											if (!storedUserName) {
+    											    // If username is not found in the cookie, prompt the user to enter it
+    											    const proposedUserName = prompt("Welcome! Please enter your username:", "YOURusername");
+    											    if (proposedUserName !== null && proposedUserName !== "") {
+    										 	       document.cookie = "username=" + proposedUserName + "; max-age=" + (365 * 24 * 60 * 60); // Store cookie for 1 year
+    											        return proposedUserName;
+    										    }
+    											} else {
+    											    return storedUserName;
+    											}
+																						}
+
+																					
+											function presentWelcomeGreeting() {
+											    const currentUser = retrieveOrAssignUserName();
+											    const currentDateTime = new Date();
+											    const previousVisit = document.cookie.replace(/(?:(?:^|.*;\s*)lastVisit\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+											
+											    if (currentUser) {
+											        if (previousVisit) {
+											            // If username and last visit time are found in the cookie, display welcome back message with last visit date/time
+											            const previousVisitDate = new Date(previousVisit);
+											            alert("Welcome back, " + currentUser + "! Your last visit was " + previousVisitDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+											        } else {
+											            // If only username is found in the cookie, update the last visit time
+											            document.cookie = "lastVisit=" + currentDateTime.toUTCString() + "; max-age=" + (365 * 24 * 60 * 60); // Store cookie for 1 year
+											            alert("Welcome, " + currentUser + "!");
+											        }
+											    }
+											}
+
+											presentWelcomeGreeting();
+
+										</script>
+										<!-- random supercars image generator -->
+										<div >
+											<h6>Super Cars Random Image Generator</h6>
+											<img id="supercarImage" src="" alt="Supercar Image">
+										</div>
+										<script>
+											 // Fetch random supercar image from Pexels API
+        									fetch('https://api.pexels.com/v1/search?query=supercar&per_page=50', {
+        									    headers: {
+        									        Authorization: 'kYEiycRH3XvbjeZGRDHzQak2JtCdZQHvZw9iTlIJuc0gX9zbVFi5LS2X'
+        									    }
+        									})
+        									    .then(response => response.json())
+        									    .then(data => {
+        									        const randomNumber = Math.floor(Math.random() * data.photos.length);
+        									        const supercarImage = document.getElementById('supercarImage');
+        									        supercarImage.src = data.photos[randomNumber].src.medium;
+        									        supercarImage.alt = data.photos[randomNumber].alt_description || 'Supercar Image';
+        									    })
+        									    .catch(error => console.error('Error fetching supercar image:', error));
+										</script>
+										<!-- new functionality-lbs to kg conversion using angular framework -->
+										<div ng-app="lbsToKgsApp" ng-controller="LbsToKgsController">
+											<h5>Lbs to Kgs Converter</h5>
+											<div>
+											  <label for="lbsInput">Enter Weight in Pounds:</label>
+											  <input id="lbsInput" type="number" ng-model="lbs" ng-change="convertToKgs()">
+											</div>
+											<div ng-show="lbs !== null">
+											  <p>{{lbs}} lbs is approximately {{kgs.toFixed(2)}} kgs</p>
+											</div>
+										  </div>
+										<script>
+											 angular.module('lbsToKgsApp', [])
+     												.controller('LbsToKgsController', function($scope) {
+     												  $scope.lbs = null;
+     												  $scope.kgs = 0;
+													
+     												  $scope.convertToKgs = function() {
+     												    if ($scope.lbs !== null) {
+     												      // 1 lb = 0.453592 kgs
+     												      $scope.kgs = $scope.lbs * 0.453592;
+     												    } else {
+     												      $scope.kgs = 0;
+     												    }
+     												  };
+     												});
+										</script>
+										<!-- digital clock -->
+								<div  id="digital-clock"></div>
+								<script>
+										
+									function fetchAndDisplayJoke(){
+										$.get("https://v2.jokeapi.dev/joke/Any?type=single",function(result){
+										$("#response").html("Joke of the day: " + result.joke);});
+									}
+									function displayTime(){
+									document.getElementById('digital-clock').innerHTML = "Current time: " + new Date();}
+									setInterval(displayTime, 500);
+									
+								</script>
+								<!-- Joke API -->
+								<div id="response" ></div>
+								<script>
+								
+									function fetchAndDisplayJoke(){
+																$.get("https://v2.jokeapi.dev/joke/Any?type=single",function(result){
+																$("#response").html("Joke of the day: " + result.joke);});
+															}
+															fetchAndDisplayJoke();
+															setInterval(fetchAndDisplayJoke, 60000);
+								</script>
 							</section><!--//project-section-->	
 						</div><!--//resume-main-->
 						<aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
@@ -151,19 +288,6 @@
 											</li>
 										</ul>
 									</section><!--//education-section-->
-									<section class="education-section py-3">
-										<h3 class="text-uppercase resume-section-heading mb-4">Awards</h3>
-										<ul class="list-unstyled resume-awards-list">
-											<li class="mb-3">
-												<div class="font-weight-bold">Award Lorem Ipsum</div>
-												<div class="text-muted">Microsoft lorem ipsum (2023)</div>
-											</li>
-											<li>
-												<div class="font-weight-bold">Award Donec Sodales</div>
-												<div class="text-muted">Oracle Aenean (2020)</div>
-											</li>
-										</ul>
-									</section><!--//education-section-->
 									<section class="skills-section py-3">
 										<h3 class="text-uppercase resume-section-heading mb-4">Languages</h3>
 										<ul class="list-unstyled resume-lang-list">
@@ -187,9 +311,9 @@
 						<hr>
 						<div class="resume-footer text-center">
 							<ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
-								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-github-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/username</span></a></li>
-								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/username</span></a></li>
-								<li class="list-inline-item mb-lg-0 me-lg-3"><a class="resume-link" href="#"><i class="fab fa-twitter-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">@twittername</span></a></li>
+								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://github.com/jurollba-UC/jurollba-UC.github.io"><i class="fab fa-github-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">Github</span></a></li>
+								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://www.linkedin.com/in/jurollu-balakrishna-210806293/"><i class="fab fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">LinkedIn</span></a></li>
+								<!-- <li class="list-inline-item mb-lg-0 me-lg-3"><a class="resume-link" href="#"><i class="fab fa-twitter-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">@twittername</span></a></li> -->
 							</ul>
 						</div><!--//resume-footer-->
 					</article>
@@ -198,7 +322,7 @@
 				
 				<footer class="footer text-center py-4">
 					<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-					<small class="copyright text-muted">Designed with <span class="sr-only">love</span><i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+					<small class="copyright text-muted">Credited to <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
 				</footer>
 				
 			</div><!--//main-wrapper-->
