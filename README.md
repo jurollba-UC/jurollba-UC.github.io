@@ -31,11 +31,11 @@ And in order to track the visitors I have incorporated a page tracker into the w
   
 In these general requirements, I have first created the personal website on GitHub as a professional profile, which includes my name, headshot, contact information and a resume, such as education, experiences and skills. Along with that, I provided a link which navigates to another HTML page saying “Web Application Programming and Hacking”.  
 
-![Simple JavaScript](assets/images/1.png)
+![First Snippet](assets/images/1.png)
 
-![HTTP request](assets/images/2.png)
-![HTTP request](assets/images/3.png)
-![HTTP request](assets/images/a.png)  
+![Second Snippet](assets/images/2.png)
+![Third Snippet](assets/images/3.png)
+![OUTPUT](assets/images/a.png)  
 
 
 ### Non-Technical Requirements:
@@ -43,8 +43,8 @@ In these general requirements, I have first created the personal website on GitH
 
 And when it comes to the non-technical requirements, I used CSS template from bootstrap. Which gave me an upper hand to provide my information in an organized manner. Such that it can target my potential employees. And I included as page tracker so that I can see the number of visits to my profile and it is also used as project in my Resume.
 
-![HTTP request](assets/images/1.png)  
-![HTTP request](assets/images/a.png)  
+![Fourth Snippet](assets/images/1.png)  
+![OUTPUT](assets/images/a.png)  
   
 
 
@@ -55,13 +55,13 @@ Later on, I have implemented the two web API Integrations such as incorporating 
 Finally, I have implemented the cookies that remember the client first visit and displays a massage showing his last time of visit. And asks for the username on every attempt.
 
 
-![HTTP request](assets/images/4.png)
-![HTTP request](assets/images/5.png)
-![HTTP request](assets/images/6.png)
-![HTTP request](assets/images/7.png)
-![HTTP request](assets/images/8.png)
-![HTTP request](assets/images/a.png)
-![HTTP request](assets/images/b.png)         
+![Fifth Snippet](assets/images/4.png)
+![Sixth Snippet](assets/images/5.png)
+![Seventh Snippet](assets/images/6.png)
+![Eighth Snippet](assets/images/7.png)
+![Ninth Snippet](assets/images/8.png)
+![FINAL OUTPUT](assets/images/a.png)
+![FINAL OUTPUT](assets/images/b.png)         
 
 
 
